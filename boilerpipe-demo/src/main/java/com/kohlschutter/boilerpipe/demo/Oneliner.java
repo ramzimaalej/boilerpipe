@@ -20,6 +20,7 @@ package com.kohlschutter.boilerpipe.demo;
 import java.net.URL;
 
 import com.kohlschutter.boilerpipe.extractors.ArticleExtractor;
+import com.kohlschutter.boilerpipe.extractors.KeepEverythingExtractor;
 
 /**
  * Demonstrates how to use Boilerpipe to get the main content as plain text. Note: In real-world
@@ -29,13 +30,10 @@ import com.kohlschutter.boilerpipe.extractors.ArticleExtractor;
  */
 public class Oneliner {
   public static void main(final String[] args) throws Exception {
-    final URL url =
-        new URL(
-            "http://blog.openshift.com/day-18-boilerpipe-article-extraction-for-java-developers/"
-        // "http://www.dn.se/nyheter/vetenskap/annu-godare-choklad-med-hjalp-av-dna-teknik"
-        );
+    final URL url = new URL("https://guardian.ng/business-services/481-tech-startups-employ-19000-raise-2-1b-in-seven-years/");
 
     System.out.println(ArticleExtractor.INSTANCE.getText(url));
+    System.out.println(KeepEverythingExtractor.INSTANCE.getText(url));
 
     // Also try other extractors!
     // System.out.println(DefaultExtractor.INSTANCE.getText(url));
